@@ -10,9 +10,10 @@ let tasks = parsedTasks;
         document.getElementById('taskList').appendChild(li);
         li.appendChild(deleteBtn);
         deleteBtn.addEventListener('click', function() {
+                tasks.splice(i,1);
+                localStorage.setItem('tasks', JSON.stringify(tasks));
                 li.remove();
         });
-        
         deleteBtn.classList.add('delete-btn');
         }; 
 
@@ -27,6 +28,8 @@ document.getElementById('addBtn').addEventListener('click', function() {
         document.getElementById('taskList').appendChild(li);
         li.appendChild(deleteBtn);
         deleteBtn.addEventListener('click', function() {
+                tasks.splice(tasks.indexOf(taskText), 1);
+                localStorage.setItem('tasks', JSON.stringify(tasks));
                 li.remove();
         });
         document.getElementById('taskInput').value = '';
