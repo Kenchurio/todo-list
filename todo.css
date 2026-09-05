@@ -15,8 +15,10 @@ body{
 }
 
 li{
-
     padding: .625rem;
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 
 input{
@@ -32,6 +34,7 @@ input[type="text"] {
 input[type="placeholder"]{
     color: #999;
 }
+
 
 #addBtn{
     margin-right: 1rem;

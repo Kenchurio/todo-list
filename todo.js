@@ -2,11 +2,15 @@ let savedTasks = localStorage.getItem('tasks');
 let parsedTasks = JSON.parse(savedTasks) || [];
 let tasks = parsedTasks;
 
+
         for ( let i = 0; i < parsedTasks.length; i++ ){
         let li = document.createElement('li');
         let deleteBtn = document.createElement('button');
+        let completeCheckbox = document.createElement('input');
+        completeCheckbox.type="checkbox";
         let currentTask = parsedTasks[i];
-        li.textContent = currentTask.taskName;    
+        li.textContent = currentTask.taskName;
+        li.prepend(completeCheckbox);   
         deleteBtn.textContent = 'Delete';
         document.getElementById('taskList').appendChild(li);
         li.appendChild(deleteBtn);
