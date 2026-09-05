@@ -1,7 +1,12 @@
 let savedTasks = localStorage.getItem('tasks');
 let parsedTasks = JSON.parse(savedTasks) || [];
 let tasks = parsedTasks;
+let searchBar = document.getElementById('searchBox');
 
+searchBar.addEventListener('input', function(){
+        let searchText = searchBar.value;
+        console.log(searchText);
+});
 
         for ( let i = 0; i < parsedTasks.length; i++ ){
         let li = document.createElement('li');
