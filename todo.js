@@ -8,9 +8,14 @@ let tasks = parsedTasks;
         let deleteBtn = document.createElement('button');
         let completeCheckbox = document.createElement('input');
         completeCheckbox.type="checkbox";
+        completeCheckbox.checked = parsedTasks[i].completed;
         let currentTask = parsedTasks[i];
         li.textContent = currentTask.taskName;
-        li.prepend(completeCheckbox);   
+        li.prepend(completeCheckbox);
+        completeCheckbox.addEventListener('change', function(){
+                currentTask.completed = completeCheckbox.checked;
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+        });
         deleteBtn.textContent = 'Delete';
         document.getElementById('taskList').appendChild(li);
         li.appendChild(deleteBtn);
@@ -39,7 +44,14 @@ else{
         localStorage.setItem('tasks', JSON.stringify(tasks));
         let li = document.createElement('li');
         let deleteBtn = document.createElement('button');
+        let completeCheckbox = document.createElement('input');
+        completeCheckbox.type="checkbox";
         li.textContent = newTask.taskName;
+        li.prepend(completeCheckbox);
+        completeCheckbox.addEventListener('change', function(){
+                newTask.completed = completeCheckbox.checked;
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+        });
         deleteBtn.textContent = 'Delete';
         document.getElementById('taskList').appendChild(li);
         li.appendChild(deleteBtn);
