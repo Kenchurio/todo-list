@@ -8,10 +8,18 @@ body{
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 15vh;
+    
+}
+
+.tasks-container{
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-height: 100vh;
 }
 
 li{

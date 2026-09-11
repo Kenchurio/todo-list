@@ -3,11 +3,22 @@ let parsedTasks = JSON.parse(savedTasks) || [];
 let tasks = parsedTasks;
 let searchBar = document.getElementById('searchBox');
 
-searchBar.addEventListener('input', function(){
-        let searchText = searchBar.value;
-        console.log(searchText);
-});
 
+searchBar.addEventListener('input', function(){
+    let searchText = searchBar.value.toLowerCase();
+    let allTasks = document.getElementById('taskList').children;
+
+    for (let i = 0; i < allTasks.length; i++) {
+        let task = allTasks[i];
+        let taskText = task.textContent.toLowerCase();
+
+        if (taskText.includes(searchText)) {
+            task.style.display = "";
+        } else {
+            task.style.display = "none";
+        }
+    }
+});
         for ( let i = 0; i < parsedTasks.length; i++ ){
         let li = document.createElement('li');
         let deleteBtn = document.createElement('button');
